@@ -20,6 +20,21 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.html")
 
+###########
+score = 0
+
+class Score():
+    def addscore(addval):
+        score = score + addval
+    def resetScore(initscore):
+        score = initscore
+    def displayscore(score):
+        
+    def storescore():
+        scorefile = open("/public_html/mp1/scoresheet.txt", "w")
+        
+        scorefile.write("User:" + userid + " " + score)
+
 
 application = tornado.web.Application([
 
