@@ -1,0 +1,17 @@
+Social Gaming Site
+Objective: create a social gaming network spanning classic games you used to play with paper and pencil.
+
+Games:
+-Tic-Tac-Toe
+-Hangman
+-Shot
+
+1. Login Page: username and password
+2. Profile: description of user and stats
+3. Rank Page: contains all users of the site and their repective scores (either overall or for each individual game...)
+4. Games Page: links to all the games we offer
+5. Each individual game..
+
+
+Tornado 
+NowJS (chat)
