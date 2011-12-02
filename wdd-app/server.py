@@ -35,22 +35,24 @@ class Score():
         highscore = False
         newscore = False
         linenum = 0
+        scfile = scorefile.getlines()
         for line in scorefile:
             if ((line.toString()).split())[0] == userid.toString():
                 if ((line.toString()).split())[1] == game:
                         newscore = True
                     if int(((line.toString()).split())[2]) < score
-                        scfile = scfile.getlines()
-                        scfile[linenum] = userid + " "+ game + " " + score + "\n"
+                        scfile[linenum] = userid + " "+ game + " " + score
                         highscore = True
                         break
-            linenum = linenum + 1
+            linenum = linenum + 1        
+        if newscore:
+            scfile = scfile + [userid + " " + game + " " + score]
+        scorefile.close()
         
-        
-        
-        if highscore == 1:
+        if highscore or newscore:
             scorefile_w = open("scoresheet.txt", "w")
-            
+            scorefile_w.write(scfile)
+            scorefile_w.close()
         
             #Display Congratulations high score is
             
