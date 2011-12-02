@@ -1,9 +1,24 @@
-body{
-margin:auto;
-width: 100%;
-min-width: 960px;
-min-height:768px;
+*{
+  margin: 0;
 }
-h1{
-color:green;
+
+body{
+	margin: auto;
+	width: 100%;
+	min-width: 960px;
+	min-height: 768px;
+}
+
+#header{
+	height: 15%;
+    background-color: red;
+}
+
+#contents{
+	background-image: url('background.jpg');
+}
+
+#footer{
+	height: 5%;
+    background-color: red;
 }
