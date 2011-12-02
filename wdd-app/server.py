@@ -32,8 +32,16 @@ class Score():
         
     def storescore():
         scorefile = open("/public_html/mp1/scoresheet.txt", "w")
+        highscore = 0
+        for line in scorefile:
+            if ((line.toString()).split())[0] == userid:
+                if ((line.toString()).split())[1] == game:
+                    if ((line.toString()).split())[2] < score
+                        scorefile.write(userid + " "+ game + " " + score)
+                        highscore = 1
+        if highscore = 1:
+            #Display Congratulations high score is
         
-        scorefile.write("User:" + userid + " " + score)
 
 
 application = tornado.web.Application([
