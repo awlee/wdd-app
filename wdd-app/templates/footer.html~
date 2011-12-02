@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Footer</title>
+<link href="{{ static_url('footer.css') }}" type="text/css" rel="stylesheet"></link>
+</head>
+
+<body>
+<ul  id="footer">
+  <li><a href ="#">About</a><li>
+  <li><a href ="#">The Game</a><li>
+</ul>
+
+&copy 2011
+</body>
+
+</html>
+

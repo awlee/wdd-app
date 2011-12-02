@@ -2,7 +2,7 @@
 <head>
 <title>"Game Arena"</title>
 </head>
-<link href="{{ static_url('style.css') }}" rel="stylesheet" type="text/css"></link>
+<link href="{{ static_url('styles.css') }}" rel="stylesheet" type="text/css"></link>
 <body>
 <h1>Game Arena</h1>
 </body>
