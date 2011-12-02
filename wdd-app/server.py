@@ -21,14 +21,15 @@ class MainHandler(tornado.web.RequestHandler):
         self.render("index.html")
 
 ###########
-score = 0
+
 
 class Score():
+    score = 0
     def addscore(addval):
         score = score + addval
     def resetScore(initscore):
         score = initscore
-    def displayscore(score):
+    def displayscore():
         
     def storescore(score, game, userid):
         scorefile = open("scoresheet.txt", "r")
