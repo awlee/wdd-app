@@ -22,40 +22,62 @@ class MainHandler(tornado.web.RequestHandler):
 
 ###########
 
-
 class Score():
-    score = 0
-    def addscore(addval):
-        score = score + addval
-    def resetScore(initscore):
-        score = initscore
-    def displayscore():
-        
-    def storescore(score, game, userid):
+    def __init__(self):
+        self.score = 0
+
+    def addscore(self, addval):
+        self.score = self.score + addval
+
+    def resetScore(self, initscore):
+        self.score = initscore
+
+    def displayscore(self):
+        print("Score: "+ str(self.score))
+        #display the score
+
+    def displayhigh(self,userid,game=""):
+        #returns a list of [game score] pairs if game isn't specified, else returns score
+        scorefile = open("scoresheet.txt","r")
+        outp = []
+        for line in scorefile:
+                if(line.split())[0] == str(userid):
+                        if (game == ""):
+                                outp = outp + [[(line.split())[1], (line.split())[2]]]
+                        elif (line.split())[1] == str(game):
+                                outp = int((line.split())[2])
+        return outp
+
+
+
+    def storescore(self, userid, game, score):
         scorefile = open("scoresheet.txt", "r")
         highscore = False
-        newscore = False
+        newscore = True
         linenum = 0
-        scfile = scorefile.getlines()
-        for line in scorefile:
-            if ((line.toString()).split())[0] == userid.toString():
-                if ((line.toString()).split())[1] == game:
-                        newscore = True
-                    if int(((line.toString()).split())[2]) < score
-                        scfile[linenum] = userid + " "+ game + " " + score
-                        highscore = True
-                        break
-            linenum = linenum + 1        
+        scfile = []
+        for i in scorefile:
+                scfile = scfile + [i.replace("\n","")]
+
+        for line in scfile:
+            if (line.split())[0] == str(userid):
+                print("userid is equal")
+                if (line.split())[1] == game:
+                        newscore = False
+                        if int(line.split()[2]) < score:
+                                scfile[linenum] = str(userid) + " "+ str(game) + " " + str(score)
+                                highscore = True
+                                break
+            linenum = linenum + 1
         if newscore:
-            scfile = scfile + [userid + " " + game + " " + score]
+            scfile = scfile + [str(userid) + " " + str(game) + " " + str(score)]
         scorefile.close()
-        
+
         if highscore or newscore:
             scorefile_w = open("scoresheet.txt", "w")
-            scorefile_w.write(scfile)
+            for writeline in scfile:
+                scorefile_w.write(writeline + "\n" )
             scorefile_w.close()
-        
-            #Display Congratulations high score is
             
 
 
