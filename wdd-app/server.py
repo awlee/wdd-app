@@ -30,16 +30,17 @@ class Score():
         score = initscore
     def displayscore(score):
         
-    def storescore():
+    def storescore(score, game, userid):
         scorefile = open("/public_html/mp1/scoresheet.txt", "w")
         highscore = 0
         for line in scorefile:
             if ((line.toString()).split())[0] == userid:
                 if ((line.toString()).split())[1] == game:
-                    if ((line.toString()).split())[2] < score
-                        scorefile.write(userid + " "+ game + " " + score)
+                    if int(((line.toString()).split())[2]) < score
+                        line.
+                        scorefile.write(userid + " "+ game + " " + score\n)
                         highscore = 1
-        if highscore = 1:
+        if highscore == 1:
             #Display Congratulations high score is
         
 
