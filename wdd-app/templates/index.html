@@ -1,30 +1,24 @@
 <html>
 <head>
 	<title>Game Arena</title>
-    <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
-    <!--link href="{{ static_url('styles.css') }}" rel="stylesheet" type="text/css" /-->
-    <link href='http://fonts.googleapis.com/css?family=IM+Fell+Double+Pica+SC' rel='stylesheet' type='text/css'>
+   <link href={{static_url('styles.css')}} media="screen" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=IM+Fell+Double+Pica+SC' rel='stylesheet' type='text/css'></link>
 </head>
 
 
 <body>
-<<<<<<< HEAD
-<h1>Game Arena</h1>
-<p>
-Hello this is a paragraph!
-</p>
-
-=======
+ 
 	<div id="wrapper">
 		<div id="header">
 			<div class="container">
 				<h1>Game Arena</h1>
 				<h2>where you play games~</h2>
 			</div>
-		</div>
+		</div> <!--end header-->
+		<!--<div class="clearfix"> </div>-->
 		<div id="contents">
-			<div class="navigation container">
-				<ul>
+			<div class="navigation">
+				<ul style="padding:0; margin:0;">
 					<li class="home">
 						<a href="/">Home</a>
 					</li>
@@ -35,19 +29,34 @@ Hello this is a paragraph!
 						<a href="/games">Games</a>
 					</li>
 				</ul>
-			</div>
-			<div id="news" class="container">
+			</div> <!--end navigation-->
+			
+		<div id="info">
+			<div id="news">
+			  <div id="news-content">
 				Where the news will go.
+				</div>
 			</div>
-			<div id="friendlist" class="container">
-				All your little friends.
+			<div id="friendlist">
+			  <div id="friendlist-content">
+			    All your little friends.
+			    </div>
 			</div>
-		</div>
+			<div class="clearfix"> </div>
+
+		</div> <!--end info-->
+			
+		</div> <!--end contents-->
+		<div class="clearfix"> </div>
 		<div id="footer">
+		  <div id="footer-content">
 			<div id="creditsAndSuch" class="container">
 				<h4>just a little space on the web</h4>
 			</div>
+			</div>
 		</div>
->>>>>>> 3e2b586eecd9c1a97df91161b560cc89b6df6064
+		
+	</div> <!-- end wrapper-->
+
 </body>
 </html>

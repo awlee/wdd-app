@@ -22,11 +22,9 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.html")
 
-<<<<<<< HEAD
 class LoginHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("login.html")
-=======
 ###########
 
 class Score():
@@ -87,7 +85,6 @@ class Score():
             scorefile_w.close()
             
 
->>>>>>> 0e7acbf4573cd37adf65e780ccada71321e19664
 
 class FooterHandler(tornado.web.RequestHandler):
     def get(self):

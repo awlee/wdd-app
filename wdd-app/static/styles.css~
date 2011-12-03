@@ -1,3 +1,112 @@
+*{
+	margin: 0;
+}
+
+body{
+	margin: auto;
+	width: 960px;
+	min-height: 768px;
+	height: 100%;
+	font-family: "Times New Roman", Georgia, Serif;
+}
+
+#header{
+	font-family: 'IM Fell Double Pica SC', serif;
+	height: 15%;
+    background-color: gray;
+    line-height: 50px;
+}
+
+#contents{
+	//background-image: url('background.jpg');
+	//height: 750px;
+	border: 2px dashed;
+}
+
+#news
+{
+	display:table-cell;
+	background-color: blue;
+	//position: absolute;
+	//left: 0px;
+	height:500px;
+	border: 1px dotted;
+	//min-width: 750px;
+	width: 150px;;
+	position:relative;
+
+}
+
+#info{
+position: relative;
+width: 100%;
+border: 1px groove;
+}
+
+.navigation{
+	height: 25px;
+	background-color: black;
+	width: 100%;
+	position:relative;
+}
+
+.navigation ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navigation li{
+	float: left;
+	margin: 5px;
+}
+
+.navigation a{
+	display: block;
+	background-color: green;
+	width: 80px;
+	text-align: center;
+}
+
+#friendlist{
+	background-color: yellow;
+	//position: absolute;
+	//right: 0px;
+	display:table-cell;
+	position: relative;
+	width:30%;
+	height: 300px;
+	//min-width: 150px;
+}
+
+
+#footer{
+	height: 5%;
+    background-color: gray;
+    //position: absolute;
+    position:relative;
+    bottom: 0px;
+    border: 1px solid;	
+}
+
+#creditsAndSuch{
+	line-height: 15px;
+
+}
+
+.container{
+	//padding: 5px;
+	//vertical-align: middle;
+	//min-width: 960px;
+}
+
+
 h1{
-color:green;
+	text-shadow: white 0px -1px 0;
+	font-size: 30px;
+}
+
+h2{
+	text-shadow: white 0px -1px 0;
+	font-size: 20px;
 }
