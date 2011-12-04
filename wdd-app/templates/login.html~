@@ -5,12 +5,68 @@
     <title>Game Arena Login Page</title>
    </head>
   <body>
+<<<<<<< HEAD
+	<div id="header">
+   		 <h1>Login</h1>
+	</div>
+	<div id="content">
+		<div id="login">
+		    	<form action="/login" method="post">
+				<p>
+					<label for="username">Username:</label>
+					<input type="text" name="username">
+				</p>
+				<p>
+					<label for="password">Password:</label>
+					<input type="password" name="password">
+				</p>
+				<p>
+					<input type="submit" value="Login">
+				</p>
+			</form>
+		</div>
+		<div id="register">
+			<form action="/register" method="post">
+				<p>
+					<label for="username">Select a username:</label>
+					<input type="text" name="username">
+				</p>
+				<p>
+					<label for="password">Type your password:</label>
+					<input type="password" name="password">
+				</p>
+				<p>
+					<input type="submit" value="Register">
+				</p>
+			</form>
+		</div>
+	</div>
+
+	<div class="clearbar"></div>
+	
+	
+=======
     
-    <h1>Login Page</h1>
-    <p>test</p>
-    
-    <h2>Footer is below</h2>
-    {% block footer %}
+    <h1>Login</h1>
+    	<form action="login" method="post">
+		<p>
+			<label>Username:</label>
+			<input type="text" name="username">
+		</p>
+		<p>
+			<label>Password:</label>
+			<input type="password" name="password">
+		</p>
+		<p>
+			<input type="submit" value="Login">
+		</p>
+	</form>
+	<div class="clearbar"></div>
+	
+	
+	<h2>Footer is below</h2>
+>>>>>>> bd48d98a61b0b1433b9df1e558801c8ca27f72fd
+    {% include "footer.html" %}
 
     
   </body>
