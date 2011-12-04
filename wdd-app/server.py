@@ -86,9 +86,9 @@ class Score():
     def resetScore(self, initscore):
         self.score = initscore
 
-    def displayscore(self):
-        print("Score: "+ str(self.score))
-        #display the score
+    def returnscore(self):
+        return self.score
+        
 
     def displayhigh(self,userid,game=""):
         #returns a list of [game score] pairs if game isn't specified, else returns score
