@@ -1,29 +1,51 @@
 <html>
   <head>
-    <style href="{{ static_url('login.css') }}" rel="stylesheet" type="text/css"></style>
-    <style href="{{ static_url('footer.css') }}" rel="stylesheet" type="text/css"></style>
+    <link href="{{ static_url('login.css') }}" rel="stylesheet" type="text/css"></link>
+    <link href="{{ static_url('footer.css') }}" rel="stylesheet" type="text/css"></link>
+    <link href={{static_url('styles.css')}} media="screen" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=IM+Fell+Double+Pica+SC' rel='stylesheet' type='text/css'></link>
     <title>Game Arena Login Page</title>
    </head>
   <body>
-    
-    <h1>Login</h1>
-    	<form action="login" method="get">
-		<p>
-			<label>Username:</label>
-			<input type="text" name="username">
-		</p>
-		<p>
-			<label>Password:</label>
-			<input type="password" name="password">
-		</p>
-		<p>
-			<input type="submit" value="Login">
-		</p>
-	</form>
+	<div id="header">
+   		 <h1>Login</h1>
+	</div>
+	<div id="content">
+		<div id="login">
+		    	<form action="/login" method="post">
+				<p>
+					<label for="username">Username:</label>
+					<input type="text" name="username">
+				</p>
+				<p>
+					<label for="password">Password:</label>
+					<input type="password" name="password">
+				</p>
+				<p>
+					<input type="submit" value="Login">
+				</p>
+			</form>
+		</div>
+		<div id="register">
+			<form action="/register" method="post">
+				<p>
+					<label for="username">Select a username:</label>
+					<input type="text" name="username">
+				</p>
+				<p>
+					<label for="password">Type your password:</label>
+					<input type="password" name="password">
+				</p>
+				<p>
+					<input type="submit" value="Register">
+				</p>
+			</form>
+		</div>
+	</div>
+
 	<div class="clearbar"></div>
 	
 	
-	<h2>Footer is below</h2>
     {% include "footer.html" %}
 
     
