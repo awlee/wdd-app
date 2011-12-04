@@ -16,8 +16,57 @@ return user
 else:
 return None
 """
-###class BaseHandler
-imgsrc = ""    
+class BaseHandler(tornado.web.RequestHandler):
+    def get_current_user(self):
+        user_json =self.get_cookie("user")
+        if user_json:
+            name = tornado.escape.json_decode(user_json)
+            db = tornado.database.Connection("localhost", "gameArena", "root")
+            db.close()
+            return user
+        else:
+            return None
+class LogoutHandler(tornado.web.RequestHandler):
+    self.clear_cookie("user")
+class LoginPageHandler(BaseHandler):
+    def get(self):
+        self.render("templates/login.html")
+    def post (self):
+        username = self.get_argument("username", "")
+        password = self.get_argument("pw","")
+        auth = self.authenticate(username, password) #db lokup here
+        print here # what does print do?
+        if auth:
+            self.set_current_user(username)
+            self.redirect("/")
+        else:
+            error_msg = "?error=" + tornado.escape.url_escape("Login inccorect.") # what is  ?error
+            self.redirect("\login" + error_msg)
+    def authenticate (self, user,password):
+        db = tornado.database.Connection("localhost", "wdd", "root")
+        user = db.get("SELECT * FROM user WHERE name ='" +user +" ' AND password = '" + password + "';") #empty if no user
+        db.close() 
+        return user
+    def set_current_user(self, user):
+        if user:
+            self.set_cookie("user", tornado.escape.json_encode(user))
+        else:
+            self.clear_cookie("user")
+
+class RegisterHandler(BaseHandler):
+    def post(self):
+        username = self.get_argument("username", "")
+        password=self.get_argument("password","")
+        self.create_user(username,password)
+        self.redirect("/login")
+    def create_user(self,user,password):
+        db = tornado.database.Connection("localhost","gameArea","root")
+        str = "INSERT into user VALUES('" + user + "', '" + password + "');" ##add uid somehow
+        db_execute(str)
+        db.close()
+            
+
+
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.html")
@@ -112,6 +161,14 @@ embedded_javascript()
 def get(self):
 self.render("concentration.html")
 """
+
+settings = {
+    "static_path": os.path.join(os.path.dirname(__file__), "static"),
+    "cookie_secret": "61oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o/Vo=",
+    "login_url": "/login",
+    "xsrf_cookies": True,
+}
+
 application = tornado.web.Application([
 
         # WDD TODO
