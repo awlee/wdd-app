@@ -6,10 +6,24 @@
    </head>
   <body>
     
-    <h1>Login Page</h1>
-    <p>test</p>
-    
-    <h2>Footer is below</h2>
+    <h1>Login</h1>
+    	<form action="login" method="get">
+		<p>
+			<label>Username:</label>
+			<input type="text" name="username">
+		</p>
+		<p>
+			<label>Password:</label>
+			<input type="password" name="password">
+		</p>
+		<p>
+			<input type="submit" value="Login">
+		</p>
+	</form>
+	<div class="clearbar"></div>
+	
+	
+	<h2>Footer is below</h2>
     {% include "footer.html" %}
 
     
