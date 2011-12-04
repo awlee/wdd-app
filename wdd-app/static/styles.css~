@@ -1,3 +1,206 @@
+*{
+	margin: 0;
+	
+}
+
+#wrapper{
+
+//height: 100%;
+}
+body{
+	margin: auto;
+	width: 960px;
+	max-height: 600px;
+	//height: 100%;
+	background-color:tan;
+	font-family: "Times New Roman", Georgia, Serif;
+}
+#news-content,#friendlist-content, #footer-content{
+padding: 5px;
+}
+#header{
+	font-family: 'IM Fell Double Pica SC', serif;
+	//height: 15%;
+    background-color: gray;
+    line-height: 50px;
+    padding: 5px;
+}
+
+#contents{
+	//background-image: url('background.jpg');
+	//height: 750px;
+	//border: 2px dashed;
+}
+
+#news
+{	float: left;
+	margin: 0;
+	display:table-cell;;
+	background-color: blue;
+	//position: absolute;
+	//left: 0px;
+	height:500px;
+	//border: 1px dotted;
+	//min-width: 750px;
+	width: 70%;
+	position:relative;
+
+}
+#info{
+display: inline-block;
+padding:0;
+position: relative;
+width: 100%;
+//border: 1px groove;
+margin: 0;
+}
+
+.navigation{
+	padding: 0;
+	height: 25px;
+	background-color: black;
+	width: 100%;
+	position:relative;
+}
+
+.navigation ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navigation li{
+	float: left;
+	margin: 5px;
+}
+
+.navigation a{
+	display: block;
+	background-color: green;
+	width: 80px;
+	text-align: center;
+}
+
+#friendlist{
+	//display: block;
+	background-color: yellow;
+	//position: absolute;
+	float: left;
+	display:table-cell;
+	position: relative;
+	//float: right;
+	//right: 0px;	
+	width:30%;
+	height: 500px;
+	//min-width: 150px;
+}
+.clearfix{
+margin:0;
+padding: 0;
+clear: both;
+visibility: hidden;
+height:0;
+line-height:0;
+display:block;
+content: ".";
+}
+
+
+#footer{
+	height: 100px;
+    background-color: gray;
+    //position: absolute;
+    position:relative;
+    bottom: 0px;
+    //border: 1px solid;	
+}
+
+#creditsAndSuch{
+	line-height: 15px;
+
+}
+
+.container{
+	//padding: 5px;
+	//vertical-align: middle;
+	//min-width: 960px;
+}
+
+
 h1{
-color:green;
+	text-shadow: white 0px -1px 0;
+	font-size: 30px;
+}
+
+h2{
+	text-shadow: white 0px -1px 0;
+	font-size: 20px;
+}
+
+/******Social Icons*****/
+
+.social li{
+height: 32px;
+width:32px;
+}
+.social{
+list-style:none;
+}
+.social li a{
+height: 32px;
+width:32px;
+}
+
+.social li {
+float:left;
+}
+
+.social li a.facebook,
+.social li a.twitter,
+.social li a.rss,
+.social li a.googleplus{
+content:"";
+height:32px;
+width:32px;
+opacity: 0.5;
+background:url("images/socialmedia.png") no-repeat;
+}
+
+.social li a.facebook{
+display:inline-block;
+background-position: -17px -66px;
+}
+.social li a.facebook:hover{
+display:inline-block;
+background-position: -17px -34px;
+}
+
+.social li a.twitter:hover{
+display:inline-block;
+background-position: -51px -34px;
+}
+.social li a.twitter{
+display:inline-block;
+background-position: -51px -66px;
+}
+.social li a.googleplus:hover{
+display:inline-block;
+background-position:  -86px -34px;
+}
+.social li a.googleplus{
+display:inline-block;
+background-position:  -86px -66px;
+}
+.social li a.rss:hover{
+display:inline-block;
+background-position: -120px -34px;
+height:31px;
+}
+.social li a.rss{
+display:inline-block;
+background-position: -120px -65px;
+height:31px;
+}
+.filler{
+display:none;
 }
