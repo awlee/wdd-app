@@ -15,3 +15,21 @@ Games:
 
 Tornado 
 NowJS (chat)
+
+Class Score()
+#in server.py
+  addscore(self, addval):
+    #adds the number addval to the users current score
+  returnscore(self):
+    #returns the user's current score.
+  displayhigh(self,userid,game=""):
+    #returns a list of [game score] highest score pairs if game isn't specified, else returns score
+    #@return: [string int] or int
+    #@input: self, int, string 
+  storescore(self, userid, game, score):
+    #stores the score of the user if the score is the highest for that particular game.  Removes any lower scores by that user for the game
+    #@input: self, int, string, int
+
+#calmail is now down for today!
+#using code name now. awlee do you still have our gmail acct, can you us with that. i don't have anyone's contact. email to those.
+amarathe:sorry about showing up late today. 

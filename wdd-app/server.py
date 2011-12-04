@@ -16,26 +16,178 @@ return user
 else:
 return None
 """
+class BaseHandler(tornado.web.RequestHandler):
+    def get_current_user(self):
+        user_json =self.get_cookie("user")
+        if user_json:
+            name = tornado.escape.json_decode(user_json)
+            db = tornado.database.Connection("localhost", "gameArena", "root")
+            db.close()
+            return user
+        else:
+            return None
+class LogoutHandler(tornado.web.RequestHandler):
+    self.clear_cookie("user")
+class LoginPageHandler(BaseHandler):
+    def get(self):
+        self.render("templates/login.html")
+    def post (self):
+        username = self.get_argument("username", "")
+        password = self.get_argument("pw","")
+        auth = self.authenticate(username, password) #db lokup here
+        print here # what does print do?
+        if auth:
+            self.set_current_user(username)
+            self.redirect("/")
+        else:
+            error_msg = "?error=" + tornado.escape.url_escape("Login inccorect.") # what is  ?error
+            self.redirect("\login" + error_msg)
+    def authenticate (self, user,password):
+        db = tornado.database.Connection("localhost", "wdd", "root")
+        user = db.get("SELECT * FROM user WHERE name ='" +user +" ' AND password = '" + password + "';") #empty if no user
+        db.close() 
+        return user
+    def set_current_user(self, user):
+        if user:
+            self.set_cookie("user", tornado.escape.json_encode(user))
+        else:
+            self.clear_cookie("user")
+
+class RegisterHandler(BaseHandler):
+    def post(self):
+        username = self.get_argument("username", "")
+        password=self.get_argument("password","")
+        self.create_user(username,password)
+        self.redirect("/login")
+    def create_user(self,user,password):
+        db = tornado.database.Connection("localhost","gameArea","root")
+        str = "INSERT into user VALUES('" + user + "', '" + password + "');" ##add uid somehow
+        db_execute(str)
+        db.close()
+            
+
+
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.html")
 
+class LoginHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("login.html")
+###########
+
+class Score():
+    def __init__(self):
+        self.score = 0
+
+    def addscore(self, addval):
+        self.score = self.score + addval
+
+    def resetScore(self, initscore):
+        self.score = initscore
+
+    def returnscore(self):
+        return self.score
+        
+
+    def displayhigh(self,userid,game=""):
+        #returns a list of [game score] pairs if game isn't specified, else returns score
+        scorefile = open("scoresheet.txt","r")
+        outp = []
+        for line in scorefile:
+                if(line.split())[0] == str(userid):
+                        if (game == ""):
+                                outp = outp + [[(line.split())[1], (line.split())[2]]]
+                        elif (line.split())[1] == str(game):
+                                outp = int((line.split())[2])
+        return outp
+
+
+
+    def storescore(self, userid, game, score):
+        scorefile = open("scoresheet.txt", "r")
+        highscore = False
+        newscore = True
+        linenum = 0
+        scfile = []
+        for i in scorefile:
+                scfile = scfile + [i.replace("\n","")]
+
+        for line in scfile:
+            if (line.split())[0] == str(userid):
+                print("userid is equal")
+                if (line.split())[1] == game:
+                        newscore = False
+                        if int(line.split()[2]) < score:
+                                scfile[linenum] = str(userid) + " "+ str(game) + " " + str(score)
+                                highscore = True
+                                break
+            linenum = linenum + 1
+        if newscore:
+            scfile = scfile + [str(userid) + " " + str(game) + " " + str(score)]
+        scorefile.close()
+
+        if highscore or newscore:
+            scorefile_w = open("scoresheet.txt", "w")
+            for writeline in scfile:
+                scorefile_w.write(writeline + "\n" )
+            scorefile_w.close()
+            
+
+
+class FooterHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("footer.html")
+class GameHandler(tornado.web.RequestHandler):
+      def get_template_path(self):
+        """Override to customize template path for each handler.
+        By default, we use the 'template_path' application setting.
+        Return None to load templates relative to the calling file.
+        """
+        return self.application.settings.get("game_path")
+      
+      def get(self):
+          
+          self.render("concentration.html")
+         
+"""class GameUI(tornado.web.UIModule):
+def get_template_path(self):
+Override to customize template path for each handler.
+By default, we use the 'template_path' application setting.
+Return None to load templates relative to the calling file.
+      
+return self.application.settings.get("game_path") 
+embedded_javascript()
+def get(self):
+self.render("concentration.html")
+"""
+
+settings = {
+    "static_path": os.path.join(os.path.dirname(__file__), "static"),
+    "cookie_secret": "61oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o/Vo=",
+    "login_url": "/login",
+    "xsrf_cookies": True,
+}
 
 application = tornado.web.Application([
 
-  # WDD TODO
-  # Add more route(s) to handle the doubling
-
-  (r"/",       MainHandler),
-
-  ###### routes end here ######
+        # WDD TODO
+        # Add more route(s) to handle the doubling
+        
+ (r"/",MainHandler),
+ (r"/login",LoginHandler),
+ (r"/footer", FooterHandler),
+ (r"/games",GameHandler)
+   ###### routes end here ######
 
 #########################
 # Don't change this     #
 #########################
 ], debug=True,
-   template_path=os.path.join(os.path.dirname(__file__), "templates"),
-   static_path=os.path.join(os.path.dirname(__file__), "static"),
+  template_path=os.path.join(os.path.dirname(__file__), "templates"),
+  static_path=os.path.join(os.path.dirname(__file__), "static"),
+  game_path=os.path.join(os.path.dirname(__file__), "game"),                              
+
 )
 
 if __name__ == "__main__":

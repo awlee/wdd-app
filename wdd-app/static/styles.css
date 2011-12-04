@@ -1,37 +1,89 @@
 *{
 	margin: 0;
+	
 }
-
+#wrapper{
+//height: 100%;
+}
 body{
+	padding-top: 5px;
+	margin-top:5px;
 	margin: auto;
-	min-width: 960px;
-	min-height: 768px;
+	width: 960px;
+	max-height: 600px;
+	//height: 100%;
+	background: #000000; /* for non-css3 browsers */
+	<!--css gradient tutorial here: http://webdesignerwall.com/tutorials/cross-browser-css-gradient-->
+	//filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#00000'); /* for IE */
+	//background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#000000)); /* for webkit browsers */
+	
+	
+	//circular
+	background: #999; /* for non-css3 browsers */
+	<!--css gradient tutorial here: http://webdesignerwall.com/tutorials/cross-browser-css-gradient-->
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#008080', endColorstr='#00000'); /* for IE */
+
+	background: -webkit-radial-gradient(circle, #008080, #000); /* for webkit browsers */
+	
+
 	font-family: "Times New Roman", Georgia, Serif;
 }
-
+#news-content,#friendlist-content, #footer-content{
+padding: 5px;
+border:1px dashed;
+height: 100%
+}
 #header{
+
+
+border-bottom-left-radius: 0px;
+ border-bottom-right-radius: 0px;
+ border-top-left-radius :5px;
+ border-top-right-radius :5px;
+//border-radius: 15px;
 	font-family: 'IM Fell Double Pica SC', serif;
-	height: 15%;
+	//height: 15%;
     background-color: gray;
     line-height: 50px;
+    padding: 5px;
 }
 
 #contents{
-	background-image: url('background.jpg');
-	height: 750px;
+	//background-image: url('background.jpg');
+	//height: 750px;
+	//border: 2px dashed;
 }
 
-#news{
-	background-color: blue;
-	position: absolute;
-	left: 0px;
-	min-width: 750px
+#news
+{	float: left;
+	margin: 0;
+	display:table-cell;
+	background-color: white;
+	//position: absolute;
+	//left: 0px;
+	height:500px;
+	//border: 1px dotted;
+	//min-width: 750px;
+	width: 70%;
+	position:relative;
+	color: black;
+
+}
+#info{
+display: inline-block;
+padding:0;
+position: relative;
+width: 100%;
+//border: 1px groove;
+margin: 0;
 }
 
 .navigation{
-	height: 25px;
+	padding: 0;
+	//height: 25px;
 	background-color: black;
 	width: 100%;
+	position:relative;
 }
 
 .navigation ul{
@@ -40,50 +92,162 @@ body{
 	padding: 0;
 }
 
+.navigation ul li:first-child{
+	    margin: 0px 5px 0 0px;
+}
 .navigation li{
 	float: left;
-	margin: 5px;
+	margin: 0px 5px 0 5px;
 }
 
 .navigation a{
+	font-size: 30px;
 	display: block;
-	background-color: green;
-	width: 80px;
+	background-color: white;
+	width: 120px;
 	text-align: center;
+	text-decoration: none; //links have no color
+	
+}
+.navigation ul li a{
+	    color: black;
+}
+
+.navigation ul li a:hover{
+	    //font-weight: bold;
+	    //color: white;
+	    
+	    background-color:#D3D3D3 ;
+	    
 }
 
 #friendlist{
-	background-color: yellow;
-	position: absolute;
-	right: 0px;
-	min-width: 150px;
+	//display: block;
+	background-color: white;
+	//position: absolute;
+	float: left;
+	display:table-cell;
+	position: relative;
+	//float: right;
+	//right: 0px;	
+	width:30%;
+	height: 500px;
+	//min-width: 150px;
+}
+.clearfix{
+margin:0;
+padding: 0;
+clear: both;
+visibility: hidden;
+height:0;
+line-height:0;
+display:block;
+content: ".";
 }
 
 
 #footer{
-	height: 5%;
+	border-bottom-left-radius: 5px;
+ border-bottom-right-radius: 5px;
+ border-top-left-radius :0px;
+ border-top-right-radius :0px;
+    height: 60px;
+    padding-bottom: 5px;
     background-color: gray;
-    position: absolute;
+    //position: absolute;
+    position:relative;
     bottom: 0px;
+    padding-bottom: 12px;
+    //border: 1px solid;	
 }
 
 #creditsAndSuch{
 	line-height: 15px;
+
 }
 
 .container{
-	padding: 5px;
-	vertical-align: middle;
-	min-width: 960px;
+	//padding: 5px;
+	//vertical-align: middle;
+	//min-width: 960px;
 }
 
 
 h1{
 	text-shadow: white 0px -1px 0;
-	font-size: 30px;
+	font-size: 60px;
 }
 
 h2{
 	text-shadow: white 0px -1px 0;
 	font-size: 20px;
+}
+
+/******Social Icons*****/
+
+.social li{
+height: 32px;
+width:32px;
+}
+.social{
+float:right;
+list-style:none;
+}
+.social li a{
+height: 32px;
+width:32px;
+}
+
+.social li {
+float:left;
+}
+
+.social li a.facebook,
+.social li a.twitter,
+.social li a.rss,
+.social li a.googleplus{
+content:"";
+height:32px;
+width:32px;
+opacity: 0.5;
+background:url("images/socialmedia.png") no-repeat;
+}
+
+.social li a.facebook{
+display:inline-block;
+background-position: -17px -66px;
+}
+.social li a.facebook:hover{
+display:inline-block;
+background-position: -17px -34px;
+}
+
+.social li a.twitter:hover{
+display:inline-block;
+background-position: -51px -34px;
+}
+.social li a.twitter{
+display:inline-block;
+background-position: -51px -66px;
+}
+.social li a.googleplus:hover{
+display:inline-block;
+background-position:  -86px -34px;
+}
+.social li a.googleplus{
+display:inline-block;
+background-position:  -86px -66px;
+}
+.social li a.rss:hover{
+display:inline-block;
+background-position: -120px -34px;
+height:31px;
+}
+.social li a.rss{
+display:inline-block;
+background-position: -120px -65px;
+height:31px;
+}
+.filler{
+display:none;
 }
