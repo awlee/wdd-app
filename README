@@ -29,3 +29,7 @@ Class Score()
   storescore(self, userid, game, score):
     #stores the score of the user if the score is the highest for that particular game.  Removes any lower scores by that user for the game
     #@input: self, int, string, int
+
+#calmail is now down for today!
+#using code name now. awlee do you still have our gmail acct, can you us with that. i don't have anyone's contact. email to those.
+amarathe:sorry about showing up late today. 
