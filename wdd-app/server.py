@@ -96,9 +96,22 @@ class GameHandler(tornado.web.RequestHandler):
         Return None to load templates relative to the calling file.
         """
         return self.application.settings.get("game_path")
+      
       def get(self):
-        self.render("concentration.html")
-  
+          
+          self.render("concentration.html")
+         
+"""class GameUI(tornado.web.UIModule):
+def get_template_path(self):
+Override to customize template path for each handler.
+By default, we use the 'template_path' application setting.
+Return None to load templates relative to the calling file.
+      
+return self.application.settings.get("game_path") 
+embedded_javascript()
+def get(self):
+self.render("concentration.html")
+"""
 application = tornado.web.Application([
 
         # WDD TODO
